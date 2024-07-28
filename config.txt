@@ -40,7 +40,7 @@ pipeline {
             steps {
                 script {
                     sh "minikube start"
-                    sh "docker system prune -a -f"
+                    sh "docker system prune -a -f" // Free up disk space
                     sh "kubectl delete deployment mywebpage || true" 
                     sh "kubectl create deployment mywebpage --image=docker.io/shivanium/webpage:${BUILD_NUMBER}" 
                     sh "kubectl scale deployment mywebpage --replicas=5" 
