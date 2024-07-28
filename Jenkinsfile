@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deploy Webapp in dev env') {
             steps {
-                sh " docker rm -f webpage || true "
+                sh " docker rm -f webpage "
                 sh "  docker run -d -p 81:80 --name webpage shivanium/webpage:${BUILD_NUMBER} "           
             }
         }
