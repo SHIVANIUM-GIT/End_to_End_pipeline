@@ -29,7 +29,9 @@ pipeline {
             steps {
                 sh "minikube delete"
                 sh "minikube start"
+                sh "kubectl create deployment mywebpage --image=shivanium/webpage:${BUILD_NUMBER}"
                 sh "kubectl apply -f webpage.yml"
+                sh "kubectl scale deployment mywebpage --replicas=5"
             }
         }
     }

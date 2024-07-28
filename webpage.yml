@@ -1,21 +1,3 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: webpage
-spec:
-  selector:
-    matchLabels:
-      app: webpage
-  template:
-    metadata:
-      labels:
-        app: webpage
-    spec:
-      containers:
-      - name: webpage
-        image: shivanium/webpage
-
----
 apiVersion: v1
 kind: Service
 metadata:
