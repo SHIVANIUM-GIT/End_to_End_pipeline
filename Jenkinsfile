@@ -20,7 +20,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'docker_password', variable: 'docker_password')]) {
                     script {
-                        sh 'docker login -u shivanium -p $docker_password'
+                        sh 'docker login -u shivanium -p ${docker_password}'
                         sh 'docker push docker.io/shivanium/webpage:${BUILD_NUMBER}'
                     }
                 }
