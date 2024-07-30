@@ -1,0 +1,13 @@
+- name: Install Docker
+  apt:
+    name: docker.io
+    state: present
+
+- name: Run Docker container
+  docker_container:
+    name: webpage
+    image: shivanium/webpage:latest
+    state: started
+    restart_policy: always
+    published_ports:
+      - "81:80"

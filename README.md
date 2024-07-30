@@ -12,6 +12,50 @@ The pipeline consists of the following stages:
 4. **Deploy Webapp in dev env**: Deploys the Docker container in a development environment.
 5. **Deploy on k8s**: Deploys the application on a Kubernetes cluster using Minikube.
 
+
+
+## Terraform Configuration
+
+Terraform is used for provisioning infrastructure. The configuration files in the `terraform/` directory define the infrastructure setup required for the application.
+
+### Files
+
+- `main.tf`: Main Terraform configuration file for provisioning an AWS instance.
+- `variables.tf`: Contains variables for the Terraform configuration.
+- `outputs.tf`: Defines the outputs of the Terraform configuration.
+
+### Usage
+
+1. **Initialize Terraform:**
+    ```sh
+    cd terraform
+    terraform init
+    ```
+
+2. **Apply Configuration:**
+    ```sh
+    terraform apply
+    ```
+
+## Ansible Playbooks
+
+Ansible is used for configuring and managing the infrastructure. The playbooks in the `ansible/` directory handle the deployment and configuration tasks.
+
+### Files
+
+- `playbook.yml`: Main Ansible playbook for application deployment.
+- `roles/web/tasks/main.yml`: Tasks for installing Docker and running the web application container.
+
+### Usage
+
+1. **Run Playbook:**
+    ```sh
+    cd ansible
+    ansible-playbook playbook.yml
+    ```
+
+
+
 ## Pipeline Script
 
 ```groovy
